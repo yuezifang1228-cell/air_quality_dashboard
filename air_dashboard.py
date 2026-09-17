@@ -70,12 +70,25 @@ else:
     sns.heatmap(corr_data, annot=True, cmap="Blues", fmt=".2f", ax=ax2)
     st.pyplot(fig2)
 
-    # 空气质量等级饼图
-    st.subheader(f"🥧 {selected_city} {selected_year}年 空气质量等级分布")
-    level_count = df_clean['quality_level'].value_counts()
-    fig3, ax3 = plt.subplots()
-    ax3.pie(level_count.values, labels=level_count.index, autopct="%.1f%%")
-    st.pyplot(fig3)
+   # 空气质量等级饼图
+st.subheader(f"🥧 {selected_city} {selected_year} Air Quality Level Distribution")
+level_count = df_clean['quality_level'].value_counts()
+
+# 中文→英文映射字典
+trans_map = {
+    "优": "Excellent",
+    "良": "Good",
+    "轻度污染": "Light pollution",
+    "中度污染": "Moderate pollution",
+    "重度污染": "Heavy pollution",
+    "严重污染": "Severe pollution"
+}
+# 将中文标签批量转为英文
+english_labels = [trans_map[lab] for lab in level_count.index]
+
+fig3, ax3 = plt.subplots()
+ax3.pie(level_count.values, labels=english_labels, autopct="%.1f%%")
+st.pyplot(fig3)
 
     # 分析结论
     st.markdown("### 📝 简要分析结论")
