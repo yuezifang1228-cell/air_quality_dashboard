@@ -3,8 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# 设置matplotlib中文
-plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['font.sans-serif'] = ['WenQuanYi Zen Hei']
 plt.rcParams['axes.unicode_minus'] = False
 
 st.set_page_config(page_title="城市空气质量交互式看板", layout="wide")
