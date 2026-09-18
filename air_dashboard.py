@@ -70,7 +70,7 @@ else:
     sns.heatmap(corr_data, annot=True, cmap="Blues", fmt=".2f", ax=ax2)
     st.pyplot(fig2)
 
-   # 空气质量等级饼图
+# 空气质量等级饼图
 st.subheader(f"🥧 {selected_city} {selected_year} Air Quality Level Distribution")
 level_count = df_clean['quality_level'].value_counts()
 
@@ -83,13 +83,12 @@ trans_map = {
     "重度污染": "Heavy pollution",
     "严重污染": "Severe pollution"
 }
-# 将中文标签批量转为英文
-english_labels = [trans_map[lab] for lab in level_count.index]
+# .get 找不到就保留原值，不会直接崩溃
+english_labels = [trans_map.get(lab, lab) for lab in level_count.index]
 
 fig3, ax3 = plt.subplots()
 ax3.pie(level_count.values, labels=english_labels, autopct="%.1f%%")
 st.pyplot(fig3)
-
     # 分析结论
     st.markdown("### 📝 简要分析结论")
     st.write("1. PM2.5与AQI高度正相关，是影响空气质量的核心指标；")
