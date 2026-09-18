@@ -89,8 +89,8 @@ english_labels = [trans_map.get(lab, lab) for lab in level_count.index]
 fig3, ax3 = plt.subplots()
 ax3.pie(level_count.values, labels=english_labels, autopct="%.1f%%")
 st.pyplot(fig3)
-    # 分析结论
-    st.markdown("### 📝 简要分析结论")
-    st.write("1. PM2.5与AQI高度正相关，是影响空气质量的核心指标；")
-    st.write("2. 颗粒物污染物与臭氧O3呈负相关，冬夏污染类型不同；")
-    st.write("3. 可通过切换城市、年份，对比不同地区空气质量差异。")
+# 分析结论
+st.markdown("### 📝 简要分析结论")
+st.write("1. PM2.5与AQI高度正相关，是影响空气质量的核心指标；")
+st.write("2. 颗粒物污染物与臭氧O3呈负相关，冬夏污染类型不同；")
+st.write("3. 可通过切换城市、年份，对比不同地区空气质量差异。")
